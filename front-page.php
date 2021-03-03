@@ -19,10 +19,10 @@
             setup_postdata( $post );
             ?>
             <!-- Выводим записи -->
-            <img src="<?php the_post_thumbnail_url()  ?>" alt="" class="post-thumb">
+            <img src="<?php the_post_thumbnail_url()  ?>" alt="post-img" class="post-thumb">
             <?php $author_id = get_the_author_meta( 'ID' ) ?>
             <a href="<?php echo get_author_posts_url($author_id) ?>" class="author">
-              <img src="<?php echo get_avatar_url($author_id) ?>" alt="" class="avatar">
+              <img src="<?php echo get_avatar_url($author_id) ?>" alt="avatar" class="avatar">
               <div class="author-bio">
                 <span class="author-name"><?php the_author() ?></span>
                 <span class="author-rank">Должность</span>
@@ -32,7 +32,7 @@
               <?php the_category() ?>
               <h2 class="post-title"><?php the_title() ?></h2>
               <a href="<?php echo get_the_permalink() ?>" class="more">Читать далее <img class="more-img"
-                  src="<?php echo get_template_directory_uri() . '/assets/images/arrow.svg'  ?>" alt=""> </a>
+                  src="<?php echo get_template_directory_uri() . '/assets/images/arrow.svg'  ?>" alt="arrow"> </a>
             </div>
           <?php 
           }
