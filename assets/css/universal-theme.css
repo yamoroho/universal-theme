@@ -739,6 +739,12 @@ body {
 .sidebar-front-page {
   margin-left: 30px;
   margin-top: 30px;
+  width: 263px;
+}
+
+.widget {
+  background-color: #fff;
+  border-radius: 10px;
 }
 
 .widget-downloader {
@@ -792,4 +798,56 @@ body {
   font-size: 14px;
   line-height: 20px;
   margin: 0;
+}
+
+.widget_tag_cloud .widget-title {
+  padding: 20px 25px;
+  border-bottom: 1px solid #D9DADB;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: "Lato Black", sans-serif;
+  text-transform: uppercase;
+}
+
+.widget_tag_cloud .tagcloud {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 25px;
+  padding-bottom: 35px;
+}
+
+.widget_tag_cloud .tag-cloud-link {
+  margin-right: 10px;
+  margin-bottom: 15px;
+  font-family: "Lato Black", sans-serif;
+  text-decoration: none;
+  line-height: 20px;
+  color: #262D33;
+  padding: 5px 15px;
+  border: 1px solid #D9DADB;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.widget-social_networks {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.widget-social_networks .widget-title {
+  margin-top: 0;
+}
+
+.widget-social_networks .widget-link {
+  display: inline-block;
+  margin: 5px 10px;
 }
