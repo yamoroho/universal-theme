@@ -135,6 +135,7 @@
         
         $query = new WP_Query( [
           'posts_per_page' => 7,
+          'category__not_in' => '34'
         ] );
 
         if ( $query->have_posts() ) {
@@ -255,3 +256,80 @@
   </div>
   
 </div>
+
+<?php		
+global $post;
+
+$query = new WP_Query( [
+	'posts_per_page' => 1,
+	'category_name'  => 'investigation',
+] );
+
+if ( $query->have_posts() ) {
+	while ( $query->have_posts() ) {
+		$query->the_post();
+		?>
+      <section class="investigation" style="background: linear-gradient(0deg, rgba(64, 48, 61, 0.35), rgba(64, 48, 61, 0.35)), url(benjamin-lambert-KxdO8elL5_c-unsplash.jpg), url(<?php echo get_the_post_thumbnail_url()?>) no-repeat center center">
+        <div class="container">
+          <h2 class="investigation-title"><?php the_title(); ?></h2>
+          <a href="<?php the_permalink() ?>" class="more">Читать статью <img class="more-img" src="<?php echo get_template_directory_uri() . '/assets/images/arrow.svg'  ?>" alt="arrow"> </a>
+        </div>
+      </section>
+		<?php 
+	}
+} else {
+	// Постов не найдено
+}
+
+wp_reset_postdata(); // Сбрасываем $post
+?>
+
+<div class="container">
+  <div class="article-block-grid">
+    <div class="article-block">
+      <?php		
+        global $post;
+
+        $query = new WP_Query( [
+          'posts_per_page' => 6,
+        ] );
+
+        if ( $query->have_posts() ) {
+          while ( $query->have_posts() ) {
+            $query->the_post();
+            ?>
+              <div class="article-block-item">
+                <a href="<?php the_permalink()?>"><img src="<?php echo get_the_post_thumbnail_url()?>" alt="<?php the_title()?>" class="article-block-item-thumb"></a>
+                <div class="article-block-item-content">
+                  <span class="category-name">
+                    <?php $category = get_the_category(); echo $category[0]->name; ?>
+                  </span> 
+                  <a href="<?php the_permalink()?>" class="article-block-item-content-title"><?php echo mb_strimwidth(get_the_title(), 0, 65, '...') ?></a>
+                  <p class="article-block-item-content-excerpt">
+                    <?php echo mb_strimwidth(get_the_excerpt(), 0, 160, '...') ?>
+                  </p>
+                  <div class="article-block-item-content-info">
+                    <span class="article-date"><?php the_time('j F') ?></span>
+                    <div class="comments">
+                      <img src="<?php echo get_template_directory_uri() . '/assets/images/comment.svg'  ?>" alt="icon: comment" class="comments-icon">
+                      <span class="comments-counter"><?php comments_number( '0', '1', '%' )?></span>
+                    </div>
+                    <div class="likes">
+                      <img src="<?php echo get_template_directory_uri() . '/assets/images/heart-grey.svg' ?>" alt="icon: like" class="likes-icon">
+                      <span class="likes-counter"><?php comments_number( '0', '1', '%' )?></span>
+                    </div>   
+                  </div>
+                </div>
+              </div>
+            <?php 
+          }
+        } else {
+          // Постов не найдено
+        }
+
+        wp_reset_postdata(); // Сбрасываем $post
+      ?>
+    </div>
+  </div>
+</div>
+
