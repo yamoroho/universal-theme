@@ -74,4 +74,43 @@
       p
         margin-top: 0
         margin-bottom: 25px
-
+@media screen and ( max-width: 1024px )
+  .footer
+    &-menu-bar
+      flex-wrap: wrap
+      padding-bottom: 20px
+    &-menu
+      flex-basis: 33%
+      padding-bottom: 40px
+    &-info
+      flex-wrap: wrap
+      justify-content: center
+      .menu-footer-menu-container
+        width: 100%
+        margin-bottom: 20px
+    &-nav
+      flex-direction: column
+      .menu-item
+        padding: 10px 0
+        a
+          margin: 0
+    &-text-wrapper
+      flex-wrap: wrap
+      .footer-text
+        width: 100%
+    &-copyright
+      display: block
+      margin: 0 auto
+@media screen and ( max-width: 768px )
+  .footer
+    &-info
+      .footer-nav
+        flex-wrap: wrap
+        .menu-item
+          &:not(:last-child)
+            margin-bottom: 0
+@media screen and ( max-width: 600px )
+  .footer
+    &-menu
+      flex-basis: 50%
+  

@@ -4,7 +4,7 @@
   width: 100%
   margin: 30px 0 60px
   .article-block
-    max-width: 848px
+    width: 74%
     background-color: #fff
     border-radius: 10px
     padding: 0 25px
@@ -71,3 +71,21 @@
             margin-left: 10px
             img
               margin-right: 5px
+@media screen and ( max-width: 1200px )
+  .article-block-grid
+    .article-block
+      width: calc( 70% - 30px )
+      &-item
+        flex-wrap: wrap
+        &-thumb
+          width: 100%
+        &-content
+          margin-left: 0
+          height: auto
+          &-excerpt
+            margin-bottom: 30px
+@media screen and ( max-width: 960px )
+  .article-block-grid
+    flex-wrap: wrap
+    .article-block
+      width: 100%

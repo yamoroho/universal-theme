@@ -5,7 +5,7 @@ body
   &-front-page
     margin-left: 30px
     margin-top: 30px
-    width: 263px
+    width: calc( 26% - 30px )
     .widget-social_networks
       padding: 30px 10px
 .widget
@@ -133,3 +133,18 @@ body
         font-size: 12px
         line-height: 15px
         color: #939699
+
+@media screen and ( max-width: 1200px )
+  .sidebar
+    &-front-page
+      width: 30%
+      margin-left: 0
+
+@media screen and ( max-width: 960px )
+  .sidebar
+    &-front-page
+      width: 100%
+  .widget
+    &-recent-posts-wrapper
+      max-width: 370px
+      margin: 0 auto

@@ -11,3 +11,9 @@ const swiper = new Swiper('.swiper-container', {
     el: '.swiper-pagination',
   },
 });
+
+let menuTogle = $('.header-menu-toggle');
+menuTogle.on('click', function (event){
+  event.preventDefault();
+  $('.header-nav').slideToggle(200);
+})
