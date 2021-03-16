@@ -229,6 +229,20 @@ body {
   }
 }
 
+@media screen and (max-width: 400px) {
+  .header-wrapper .custom-logo {
+    width: 100px;
+  }
+  .header-wrapper .custom-logo-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .home {
   background-color: #E5E5E5;
 }
@@ -512,6 +526,15 @@ body {
   .front-page-header {
     height: auto;
     padding-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero .left {
+    padding: 20px 15px 30px;
+  }
+  .hero .left .post-text .post-title {
+    font-size: 30px;
   }
 }
 
@@ -1003,6 +1026,18 @@ body {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .article-grid-item-1 .article-grid-thumb {
+    display: none;
+  }
+  .article-grid-item-1 .article-grid-title {
+    width: 100%;
+  }
+  .article-grid-item-1 .article-grid-excerpt {
+    width: 100%;
+  }
+}
+
 body {
   counter-reset: section;
 }
@@ -1233,6 +1268,12 @@ body {
 
 .investigation .more {
   margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .investigation-title {
+    font-size: 25px;
+  }
 }
 
 .article-block-grid {
