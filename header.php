@@ -13,9 +13,36 @@
       <div class="header-wrapper">
         <?php 
           if( has_custom_logo() ){
-            the_custom_logo();
+            echo '<div class="logo">';
+            
+            if( is_front_page() ){
+              $logo_img = '';
+              if( $custom_logo_id = get_theme_mod('custom_logo') ){
+                $logo_img = wp_get_attachment_image( $custom_logo_id, 'full', false, array(
+                  'class'    => 'custom-logo',
+                  'itemprop' => 'logo',
+                ) );
+              }
+              echo $logo_img;
+              echo '<span class="logo-name">';
+              bloginfo('name');
+              echo '</span></div>';
+            } else {
+              the_custom_logo();
+              echo '<a class="logo-name" href="'.get_home_url().'">';
+              echo bloginfo('name');
+              echo '</a></div>';
+            }
           } else {
-            echo 'Universal';
+            if( is_front_page() ){
+              echo '<span class="logo-name">';
+              bloginfo('name');
+              echo '</span>';
+            } else {
+              echo '<a class="logo-name" href="'.get_home_url().'">';
+              echo bloginfo('name');
+              echo '</a></div>';
+            }
           }
         ?>
 
