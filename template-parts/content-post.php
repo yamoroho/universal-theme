@@ -100,7 +100,7 @@
         </div>
       </div>
     </div>
-	</header><!-- .entry-header -->
+	</header>
 
     <!-- Содержимое поста -->
   <div class="container">
@@ -129,17 +129,20 @@
         )
       );
       ?>
-    </div><!-- .entry-content -->
+    </div>
 
+ 
+  <!-- Подвал поста -->
+    <footer class="post-footer">
+      <?php 
+        $tags_list = get_the_tag_list( '', esc_html_x( ' ', 'list item separator', 'universal-example' ) );
+        if ( $tags_list ) {
+          /* translators: 1: list of tags. */
+          printf( '<div class="tags-links">' . esc_html__( '%1$s', 'universal-example' ) . '</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        }
+        // Поделиться в соцсетях
+        meks_ess_share();
+      ?>
+    </footer>
   </div>
- <!-- Подвал поста -->
-  <footer class="entry-footer">
-		<?php 
-      $tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'universal-example' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( '%1$s', 'universal-example' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-    ?>
-	</footer><!-- .entry-footer -->
 </article>

@@ -1095,6 +1095,93 @@ body {
   padding: 30px 10px;
 }
 
+.sidebar-single {
+  background: #F5F5F5;
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 90px;
+}
+
+.sidebar-single .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.sidebar-single-item {
+  width: calc( 25% - 23px);
+}
+
+.sidebar-single-item-thumb {
+  display: block;
+}
+
+.sidebar-single-item-thumb img {
+  display: block;
+  width: 263px;
+  height: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+
+.sidebar-single-item-title {
+  color: #262D33;
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 25px;
+  margin: 15px 0;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar-single-item-title:visited {
+  color: #262D33;
+}
+
+.sidebar-single-item-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #939699;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.sidebar-single-item-info-comments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar-single-item-info-comments .icon {
+  margin-right: 5px;
+}
+
+.sidebar-single-item-info-views {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+.sidebar-single-item-info-views .icon {
+  margin-right: 5px;
+}
+
 .widget {
   background-color: #fff;
   border-radius: 10px;
@@ -2030,7 +2117,7 @@ body {
 .post-title {
   font-size: 55px;
   line-height: 70px;
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab";
   font-style: normal;
   font-weight: bold;
   max-width: 750px;
@@ -2142,7 +2229,7 @@ body {
 }
 
 .post-author-name {
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab";
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
@@ -2179,6 +2266,7 @@ body {
 
 .post-content {
   padding-top: 60px;
+  padding-bottom: 30px;
 }
 
 .post-content p {
@@ -2198,7 +2286,41 @@ body {
 }
 
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab";
+}
+
+.post-content .wp-block-table table {
+  border: 2px solid #000000;
+  border-collapse: collapse;
+}
+
+.post-content .wp-block-table table tr {
+  border: 2px solid #000000;
+}
+
+.post-content .wp-block-table table tr td {
+  border: 2px solid #000000;
+}
+
+.post-footer .tags-links {
+  padding-bottom: 60px;
+  border-bottom: 1px solid #D9DADB;
+  max-width: 623px;
+  width: 100%;
+}
+
+.post-footer .tags-links a {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  font-family: "Lato Black", sans-serif;
+  text-decoration: none;
+  line-height: 20px;
+  color: #262D33;
+  padding: 5px 15px;
+  border: 1px solid #D9DADB;
+  border-radius: 5px;
+  text-transform: capitalize;
 }
 
 .site-main .container {
@@ -2224,4 +2346,17 @@ body {
 
 .site-main .container .post-bookmark:hover {
   opacity: 1;
+}
+
+.meks_ess {
+  max-width: 623px;
+  margin-top: 0;
+}
+
+.meks_ess_share_label {
+  font-size: 25px;
+  line-height: 30px;
+  font-family: "Roboto Slab";
+  margin-top: 30px;
+  margin-bottom: 25px;
 }
