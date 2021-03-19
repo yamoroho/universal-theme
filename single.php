@@ -20,6 +20,14 @@
 
 		  endwhile; // Конец цыкла Wordpress.
 		?>
-    <?php get_sidebar( 'single' ); ?>
+    <div class="sidebar-single">
+      <div class="container">
+        <?php 
+        $instance = array(
+          'quantity' => '4'
+        );
+        the_widget( 'Posts_Single_Widget', $instance); ?>
+      </div>
+    </div>
   </main>
 <?php get_footer(); ?>

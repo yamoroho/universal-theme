@@ -73,17 +73,7 @@ function universal_theme_widgets_init() {
 			'after_title'   => '',
 		)
 	);
-  register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar in single', 'universaltheme' ),
-			'id'            => 'sidebar-single',
-			'description'   => esc_html__( 'Добавьте посты сюда.', 'universaltheme' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+
 }
 add_action( 'widgets_init', 'universal_theme_widgets_init' );
 
@@ -510,6 +500,155 @@ function register_social_networks_widget() {
 	register_widget( 'Social_Networks_Widget' );
 }
 add_action( 'widgets_init', 'register_social_networks_widget' );
+
+/**
+ * Добавление нового виджета Posts_Single_Widget.
+ */
+class Posts_Single_Widget extends WP_Widget {
+
+	// Регистрация виджета используя основной класс
+	function __construct() {
+		// вызов конструктора выглядит так:
+		// __construct( $id_base, $name, $widget_options = array(), $control_options = array() )
+		parent::__construct(
+			'posts_single_widget', // ID виджета, если не указать (оставить ''), то ID будет равен названию класса в нижнем регистре: posts_single_widget
+			'Посты',
+			array( 'description' => 'Посты под статьей', 
+      'classname' => 'widget-posts_single', )
+		);
+
+		// скрипты/стили виджета, только если он активен
+		if ( is_active_widget( false, false, $this->id_base ) || is_customize_preview() ) {
+			add_action('wp_enqueue_scripts', array( $this, 'add_posts_single_widget_scripts' ));
+			add_action('wp_head', array( $this, 'add_posts_single_widget_style' ) );
+		}
+	}
+
+	/**
+	 * Вывод виджета во Фронт-энде
+	 *
+	 * @param array $args     аргументы виджета.
+	 * @param array $instance сохраненные данные из настроек
+	 */
+	function widget( $args, $instance ) {
+		$quantity = $instance['quantity'];
+    global $post;
+    $category = get_the_category();
+    $post_id = get_the_ID();
+    $query = new WP_Query( [
+      'posts_per_page' => $quantity,
+      'category_name'        => $category[0] -> slug,
+        'post__not_in' => array($post_id),
+    ] );
+
+    if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) {
+        $query->the_post();          
+        ?>
+          <div class="sidebar-single-item">
+            <a href="<?php the_permalink()?>" class="sidebar-single-item-thumb">
+              <img src="
+              <?php                  
+                if( has_post_thumbnail() ) {
+                  echo get_the_post_thumbnail_url();
+                }
+                else {
+                  echo get_template_directory_uri() . '/assets/images/image-default.png';
+                }
+              ?>
+              " alt="">
+            </a>
+            <a href="<?php the_permalink()?>" class="sidebar-single-item-title"><? the_title(  ) ?></a>
+            <div class="sidebar-single-item-info">
+              <div class="views sidebar-single-item-info-views">
+                <svg fill="#BCBFC2" width="15" height="15" class="icon eye-icon">
+                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#eye"></use>
+                </svg>
+                <span class="likes-counter"><?php comments_number( '0', '1', '%' )?></span>
+              </div> 
+              <div class="comments sidebar-single-item-info-comments">
+                <svg fill="#BCBFC2" width="15" height="15" class="icon comments-icon">
+                  <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/images/sprite.svg#comment"></use>
+                </svg>
+                <span class="comments-counter"><?php comments_number( '0', '1', '%' )?></span>
+              </div>                  
+            </div>
+          </div>
+        <?php 
+      }
+    } else {
+      // Постов не найдено
+    }
+
+    wp_reset_postdata(); // Сбрасываем $post
+	}
+
+	/**
+	 * Админ-часть виджета
+	 *
+	 * @param array $instance сохраненные данные из настроек
+	 */
+	function form( $instance ) {
+		$quantity = @ $instance['quantity'] ?: '4';
+
+
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'quantity' ); ?>"><?php _e( 'Количество постов:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'quantity' ); ?>" name="<?php echo $this->get_field_name( 'quantity' ); ?>" type="text" value="<?php echo esc_attr( $quantity ); ?>">
+		</p>
+		<?php 
+	}
+
+	/**
+	 * Сохранение настроек виджета. Здесь данные должны быть очищены и возвращены для сохранения их в базу данных.
+	 *
+	 * @see WP_Widget::update()
+	 *
+	 * @param array $new_instance новые настройки
+	 * @param array $old_instance предыдущие настройки
+	 *
+	 * @return array данные которые будут сохранены
+	 */
+	function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['quantity'] = ( ! empty( $new_instance['quantity'] ) ) ? strip_tags( $new_instance['quantity'] ) : '';
+
+
+		return $instance;
+	}
+
+	// скрипт виджета
+	function add_posts_single_widget_scripts() {
+		// фильтр чтобы можно было отключить скрипты
+		if( ! apply_filters( 'show_posts_single_widget_script', true, $this->id_base ) )
+			return;
+
+		$theme_url = get_stylesheet_directory_uri();
+
+		wp_enqueue_script('posts_single_widget_script', $theme_url .'/posts_single_widget_script.js' );
+	}
+
+	// стили виджета
+	function add_posts_single_widget_style() {
+		// фильтр чтобы можно было отключить стили
+		if( ! apply_filters( 'show_posts_single_widget_style', true, $this->id_base ) )
+			return;
+		?>
+		<style type="text/css">
+			.my_widget a{ display:inline; }
+		</style>
+		<?php
+	}
+
+} 
+// конец класса Social_Posts_Single_Widget
+
+// регистрация Social_Posts_Single_Widget в WordPress
+function register_posts_single_widget() {
+	register_widget( 'Posts_Single_Widget' );
+}
+add_action( 'widgets_init', 'register_posts_single_widget' );
 
 
 // Подключение стилей и скриптов
