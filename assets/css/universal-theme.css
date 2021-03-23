@@ -486,6 +486,9 @@ body {
       -ms-flex-align: center;
           align-items: center;
   text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .more:visited {
@@ -2359,4 +2362,228 @@ body {
   font-family: "Roboto Slab";
   margin-top: 30px;
   margin-bottom: 25px;
+}
+
+.comments-area {
+  max-width: 750px;
+}
+
+.comments-title {
+  font-family: Roboto Slab;
+  font-size: 40px;
+  line-height: 50px;
+}
+
+.comments-title .comments-count {
+  color: #939699;
+  font-family: "Lato Regular", sans-serif;
+}
+
+.comments-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.comments-add-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: "Lato Black", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  color: #262D33;
+  padding: 10px 20px;
+  border: 1px solid #D9DADB;
+  border-radius: 20px;
+}
+
+.comments-add-button:visited {
+  color: #262D33;
+}
+
+.comments-add-button:hover {
+  color: #262D33;
+}
+
+.comments-add-icon {
+  margin-right: 10px;
+}
+
+.comments-list {
+  margin-left: 0;
+  padding: 0;
+}
+
+.comment-content p {
+  font-size: 18px;
+  line-height: 30px;
+  color: #4B5157;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.comment a {
+  text-decoration: none;
+}
+
+.comment-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-top: 1px solid #D9DADB;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.comment-author-name {
+  font-family: "Roboto Slab", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.comment-author-name .url {
+  color: #262D33;
+}
+
+.comment-author-name .url:visited {
+  color: #262D33;
+}
+
+.comment-author-avatar {
+  margin-right: 15px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.comment-author-avatar img {
+  border-radius: 50%;
+}
+
+.comment-meta {
+  font-size: 12px;
+  line-height: 15px;
+  margin-left: 10px;
+}
+
+.comment-meta a {
+  color: #939699;
+}
+
+.comment-meta a:visited {
+  color: #939699;
+}
+
+.comment-reply {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.comment-reply a {
+  color: #262D33;
+  font-size: 12px;
+  line-height: 15px;
+  margin-left: 5px;
+}
+
+.comment-form {
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  padding: 30px 40px 35px 30px;
+}
+
+.comment-form .avatar {
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.comment-form .form-submit {
+  margin-bottom: 0;
+}
+
+.comment-form .form-submit .more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 137px;
+  height: 40px;
+  padding: 0;
+  margin-left: 95px;
+}
+
+.comment-label {
+  font-family: Roboto Slab;
+  font-size: 20px;
+  line-height: 25px;
+  color: #262D33;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: 95px;
+}
+
+.comment-textarea {
+  min-height: 130px;
+  max-width: 595px;
+  resize: none;
+  border: 1px solid #D9DADB;
+  background-color: #fff;
+  border-radius: 10px;
+  outline: none;
+}
+
+.comment-textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.comment-textarea-wrapper::before {
+  content: "";
+  background-image: url(../images/angle.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  width: 12px;
+  height: 20px;
+  position: absolute;
+  left: -10px;
+  top: 25px;
+}
+
+.comment-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }

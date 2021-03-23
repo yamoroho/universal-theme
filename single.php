@@ -9,6 +9,13 @@
       // находим шаблон для вывода поста в шапке template_parts
 			get_template_part( 'template-parts/content', get_post_type() );
 
+      echo '<div class="sidebar-single"> <div class="container">';  
+      $instance = array(
+        'quantity' => '4'
+      );
+      the_widget( 'Posts_Single_Widget', $instance);
+      echo '</div></div>';
+
 			
       echo '<div class="container">';
 			// Если комментарии к записи открыты, выводим комментарии
@@ -20,14 +27,6 @@
 
 		  endwhile; // Конец цыкла Wordpress.
 		?>
-    <div class="sidebar-single">
-      <div class="container">
-        <?php 
-        $instance = array(
-          'quantity' => '4'
-        );
-        the_widget( 'Posts_Single_Widget', $instance); ?>
-      </div>
-    </div>
+    
   </main>
 <?php get_footer(); ?>
