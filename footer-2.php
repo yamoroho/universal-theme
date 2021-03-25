@@ -1,22 +1,6 @@
-  <footer class="footer">
+<footer class="footer">
     <div class="container">
 
-      <div class="footer-form-wrapper">
-        <h3 class="footer-form-title">Подпишитесь на нашу рассылку</h3>
-        <form action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post" class="footer-form">
-          <!-- Поле Email (обязательно) -->
-          <input require type="text" name="email" placeholder="Введите email" class="input footer-form-input" />
-          <!-- Токен списка -->
-          <!-- Получить API ID на: https://app.getresponse.com/campaign_list.html -->
-          <input type="hidden" name="campaign_token" value="o9Cce" />
-          <!-- Страница благодарности -->
-	        <input type="hidden" name="thankyou_url" value="<? echo home_url('thankyou') ?>"/>
-          <!-- Добавить подписчика в цикл на определенный день -->
-          <input type="hidden" name="start_day" value="0" />
-          <!-- Кнопка подписаться -->
-          <button type="submit">Подписаться</button>
-        </form>
-      </div>
         
       <aside class="footer-menu-bar">
         <?php dynamic_sidebar( 'sidebar-footer' ); ?>
