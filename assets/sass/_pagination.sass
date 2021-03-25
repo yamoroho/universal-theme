@@ -1,0 +1,31 @@
+.pagination
+  margin-top: 40px
+  .nav-links
+    background-color: #fff
+    border-radius: 10px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    *
+      text-decoration: none
+    .page-numbers 
+      padding: 17px 24px      
+      color: #262D33
+      font-size: 14px
+      line-height: 20px
+      font-family: "Lato Black", sans-serif
+      display: flex
+      align-items: center
+      justify-content: center
+      &:not(:last-child)
+        border-right: 1px solid #D9DADB        
+      &.current
+        color: #4592FF
+    .next
+      padding: 17px 70px
+      svg
+        margin-left: 8px
+    .prev
+      padding: 17px 70px
+      svg
+        margin-right: 8px
