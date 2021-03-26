@@ -471,7 +471,6 @@ body {
 }
 
 .more {
-  display: inline-block;
   color: #fff;
   border-radius: 20px;
   background: #4592FF;
@@ -506,6 +505,14 @@ body {
 
 .more-img {
   margin-left: 8px;
+}
+
+.more.button {
+  padding: 0;
+}
+
+.more svg {
+  margin-left: 5px;
 }
 
 .category-link {
@@ -2642,6 +2649,10 @@ body {
 
 .pagination {
   margin-top: 40px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 20px;
 }
 
 .pagination .nav-links {
@@ -2840,4 +2851,101 @@ body {
 .post-card .author-name {
   width: 100%;
   color: #4B5157;
+}
+
+.section-dark {
+  background: #262D33;
+  color: #fff;
+  padding: 50px 122px;
+}
+
+.page-title {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 40px;
+  line-height: 50px;
+  margin: 0;
+  margin-bottom: 27px;
+}
+
+.page-text {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.contacts-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.contacts-wrapper .button.more {
+  color: #fff;
+  border-radius: 20px;
+  background: #4592FF;
+  width: 154px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.contacts-wrapper .button.more:visited {
+  color: #fff;
+}
+
+.contacts-wrapper .button.more:focus {
+  color: #fff;
+}
+
+.contacts-wrapper .button.more:hover {
+  color: #fff;
+}
+
+.contacts-wrapper .button.more-img {
+  margin-left: 8px;
+}
+
+.contacts-wrapper .button.more.button {
+  padding: 0;
+}
+
+.contacts-wrapper .button.more svg {
+  margin-left: 5px;
+}
+
+.contacts-form {
+  max-width: 460px;
+}
+
+.contacts-input.input {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #939699;
+}
+
+.contacts-textarea.textarea {
+  width: 100%;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #939699;
+  min-height: 120px;
+  resize: none;
 }
