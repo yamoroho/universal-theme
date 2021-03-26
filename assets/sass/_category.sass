@@ -1,0 +1,73 @@
+.category
+  &-title
+    font-size: 40px
+    line-height: 50px
+.post
+  &-list
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+  &-card
+    width: calc( 25% - 23px )
+    background: #FFFFFF
+    border-radius: 10px
+    overflow: hidden
+    margin-bottom: 30px
+    a
+      display: block
+      text-decoration: none
+      color: #262D33
+      &:visited
+        color: #262D33
+      &:hover
+        color: #262D33
+    &:not(:nth-child(4n))
+      margin-right: 30px      
+    &-thumb
+      height: 180px
+      width: 100%
+      object-fit: cover
+      display: block
+    &-text
+      padding: 15px 25px 25px
+      height: calc( 100% - 180px )
+      display: flex
+      flex-direction: column
+      p
+        font-size: 14px
+        line-height: 20px
+        margin-bottom: 14px
+    &-title
+      font-family: 'Roboto Slab', sans-serif
+      font-size: 16px
+      line-height: 25px
+      margin: 0
+      margin-bottom: 5px
+    .author
+      display: flex
+      align-items: center
+      margin-top: auto
+      &-avatar
+        width: 45px
+        height: 45px
+        border-radius: 50%
+      &-info
+        display: flex
+        flex-wrap: wrap
+        margin-left: 10px
+        color: #939699
+        .date
+          display: flex
+          align-items: center
+        .comments, .likes
+          margin-left: 10px
+          display: flex
+          align-items: center
+          span
+            display: flex
+            align-items: center
+          svg
+            margin-right: 5px
+      &-name
+        width: 100%
+        color: #4B5157
