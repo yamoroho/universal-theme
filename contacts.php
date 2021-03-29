@@ -12,7 +12,7 @@ get_header();
     <?php the_title( '<h1 class="page-title">', '</h1>', true ); ?>
     <div class="contacts-wrapper">
       <div class="left">
-        <p class="page-text">Через форму обратной связи</p>
+        <h2 class="contacts-title">Через форму обратной связи</h2>
         <!-- <form action="#" class="contacts-form" method="POST">
           <input name="contact_name" type="text" class="input contacts-input" placeholder="Ваше имя">
           <input name="contact_email" type="email" class="input contacts-input" placeholder="Ваш Email">
@@ -25,7 +25,22 @@ get_header();
         </form> -->
         <?php the_content() ?>
       </div> 
-      <div class="right"></div>
+      <div class="right">
+        <h2 class="contacts-title">Или по этим контактам</h2>
+        <?php
+          // $email = get_post_meta( get_the_ID(), 'email', true );
+          // if ($email) {echo '<a href="mailto:' . $email . '">' . $email . '</a>';}
+
+          // $address = get_post_meta( get_the_ID(), 'address', true );
+          // if ($address) {echo '<address>' . $address . '</address>';}
+
+          // $phone = get_post_meta( get_the_ID(), 'phone', true );
+          // if ($phone) {echo '<a href="tel:' . $phone . '">' . $phone . '</a>';}
+        ?>
+        <a href="<?php the_field('email'); ?>"> <?php the_field('email') ?> </a>
+        <address> <?php the_field('address') ?> </address>
+        <a href="<?php the_field('phone'); ?>"> <?php the_field('phone') ?> </a>
+      </div>
     </div>
   </div>
 </section>
