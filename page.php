@@ -1,3 +1,6 @@
 <?php get_header(); ?>
- <h1>Page</h1>
+ <div class="container">
+  <h1><?php the_title(); ?></h1>
+  <p><?php echo get_the_excerpt(); ?></p>
+ </div>
 <?php get_footer(); ?>

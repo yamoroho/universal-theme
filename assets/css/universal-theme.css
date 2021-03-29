@@ -2881,6 +2881,11 @@ body {
           align-items: flex-start;
 }
 
+.contacts-wrapper .left {
+  max-width: 458px;
+  width: 50%;
+}
+
 .contacts-wrapper .button.more {
   color: #fff;
   border-radius: 20px;
@@ -2948,4 +2953,8 @@ body {
   color: #939699;
   min-height: 120px;
   resize: none;
+}
+
+.partnership-title {
+  color: blue;
 }
