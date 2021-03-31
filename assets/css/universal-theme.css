@@ -2974,3 +2974,8 @@ body {
 .partnership-title {
   color: blue;
 }
+
+.lesson-header {
+  padding: 80px 0;
+  color: white;
+}
