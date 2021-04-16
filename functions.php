@@ -131,9 +131,9 @@ add_action( 'after_setup_theme', 'universal_theme_setup');
 function universal_theme_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar in front-page top ', 'universaltheme' ),
+			'name'          => esc_html__( 'Sidebar in front-page top ', 'universal' ),
 			'id'            => 'main-sidebar-top',
-			'description'   => esc_html__( 'Добавьте виджеты сюда.', 'universaltheme' ),
+			'description'   => esc_html__( 'Добавьте виджеты сюда.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -142,9 +142,9 @@ function universal_theme_widgets_init() {
 	);
   register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar in front-page bottom', 'universaltheme' ),
+			'name'          => esc_html__( 'Sidebar in front-page bottom', 'universal' ),
 			'id'            => 'main-sidebar-bottom',
-			'description'   => esc_html__( 'Добавьте посты сюда.', 'universaltheme' ),
+			'description'   => esc_html__( 'Добавьте посты сюда.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -153,9 +153,9 @@ function universal_theme_widgets_init() {
 	);
   register_sidebar(
 		array(
-			'name'          => esc_html__( 'Меню в подвале', 'universaltheme' ),
+			'name'          => esc_html__( 'Меню в подвале', 'universal' ),
 			'id'            => 'sidebar-footer',
-			'description'   => esc_html__( 'Добавьте меню сюда.', 'universaltheme' ),
+			'description'   => esc_html__( 'Добавьте меню сюда.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="footer-menu %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="footer-menu-title">',
@@ -164,9 +164,9 @@ function universal_theme_widgets_init() {
 	);
   register_sidebar(
 		array(
-			'name'          => esc_html__( 'Текст в подвале', 'universaltheme' ),
+			'name'          => esc_html__( 'Текст в подвале', 'universal' ),
 			'id'            => 'sidebar-footer-text',
-			'description'   => esc_html__( 'Добавьте текст сюда.', 'universaltheme' ),
+			'description'   => esc_html__( 'Добавьте текст сюда.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="footer-text %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '',
@@ -175,9 +175,9 @@ function universal_theme_widgets_init() {
 	);
   register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar in Search ', 'universaltheme' ),
+			'name'          => esc_html__( 'Sidebar in Search ', 'universal' ),
 			'id'            => 'sidebar-search',
-			'description'   => esc_html__( 'Добавьте виджеты сюда.', 'universaltheme' ),
+			'description'   => esc_html__( 'Добавьте виджеты сюда.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
