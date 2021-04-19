@@ -45,7 +45,7 @@ function universal_theme_comment( $comment, $args, $depth ) {
       <?php
       
       printf(
-        __( '<cite class="comment-author-name">%s</cite> <span class="says"></span>' ),
+        '<cite class="comment-author-name">%s</cite> <span class="says"></span>',
         get_comment_author_link()
       );
       ?>
@@ -151,7 +151,7 @@ if ( post_password_required() ) {
 	comment_form(array(
     'title_reply' => '',
     'comment_field' => '<div class="comment-form-comment">
-      <label class="comment-label" for="comment">' . _x( 'Что вы думаете на этот счет? ', 'noun' ) . '</label>    
+      <label class="comment-label" for="comment">' . _x( 'What do you think about this? ', 'noun' ) . '</label>    
       <div class="comment-wrapper">
         ' . get_avatar( get_current_user_id(), 75 ) . '
         <div class="comment-textarea-wrapper">

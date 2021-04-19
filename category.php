@@ -48,17 +48,15 @@
 
   <?php 
     $args = array(
-      'prev_text'    => __('
+      'prev_text'    => '
       <svg fill="#BCBFC2" width="15" height="7" class="icon prev-icon">
         <use xlink:href="'.get_template_directory_uri().'/assets/images/sprite.svg#left-arrow"></use>
-      </svg>
-      Назад'),
-	    'next_text'    => __('
-      Вперед 
-      <svg fill="#BCBFC2" width="15" height="7" class="icon next-icon">
+      </svg>' . __('Back'),
+	    'next_text'    => __('Next') .  
+      '<svg fill="#BCBFC2" width="15" height="7" class="icon next-icon">
         <use xlink:href="'.get_template_directory_uri().'/assets/images/sprite.svg#arrow"></use>
       </svg>
-      '),
+      ',
     );
   the_posts_pagination( $args ) ?>  
 </div>

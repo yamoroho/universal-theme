@@ -4,7 +4,7 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
   function universal_theme_setup() {
 
     // Подключение файлов перевода
-    load_theme_textdomain('universal', get_template_directory_uri() . '/languages');
+    load_theme_textdomain('universal', get_template_directory() . '/languages');
 
     // Добавление тега title
     add_theme_support( 'title-tag' );
@@ -31,18 +31,18 @@ if ( ! function_exists( 'universal_theme_setup' ) ) :
       register_post_type( 'lesson', [
         'label'  => null,
         'labels' => [
-          'name'               => 'Уроки', // основное название для типа записи
-          'singular_name'      => 'Урок', // название для одной записи этого типа
-          'add_new'            => 'Добавить урок', // для добавления новой записи
-          'add_new_item'       => 'Добавление урока', // заголовка у вновь создаваемой записи в админ-панели.
-          'edit_item'          => 'Редактирование урока', // для редактирования типа записи
-          'new_item'           => 'Новой урок', // текст новой записи
-          'view_item'          => 'Смотреть уроки', // для просмотра записи этого типа.
-          'search_items'       => 'Искать уроки', // для поиска по этим типам записи
-          'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
-          'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+          'name'               => __('Уроки'), // основное название для типа записи
+          'singular_name'      => __('Урок'), // название для одной записи этого типа
+          'add_new'            => __('Добавить урок'), // для добавления новой записи
+          'add_new_item'       => __('Добавление урока'), // заголовка у вновь создаваемой записи в админ-панели.
+          'edit_item'          => __('Редактирование урока'), // для редактирования типа записи
+          'new_item'           => __('Новой урок'), // текст новой записи
+          'view_item'          => __('Смотреть уроки'), // для просмотра записи этого типа.
+          'search_items'       => __('Искать уроки'), // для поиска по этим типам записи
+          'not_found'          => __('Не найдено'), // если в результате поиска ничего не было найдено
+          'not_found_in_trash' => __('Не найдено в корзине'), // если не было найдено в корзине
           'parent_item_colon'  => '', // для родителей (у древовидных типов)
-          'menu_name'          => 'Уроки', // название меню
+          'menu_name'          => __('Уроки'), // название меню
         ],
         'description'         => 'Раздел с видеоуроками',
         'public'              => true,
@@ -133,7 +133,7 @@ function universal_theme_widgets_init() {
 		array(
 			'name'          => esc_html__( 'Sidebar in front-page top ', 'universal' ),
 			'id'            => 'main-sidebar-top',
-			'description'   => esc_html__( 'Добавьте виджеты сюда.', 'universal' ),
+			'description'   => esc_html__( 'Add widgets here.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -144,7 +144,7 @@ function universal_theme_widgets_init() {
 		array(
 			'name'          => esc_html__( 'Sidebar in front-page bottom', 'universal' ),
 			'id'            => 'main-sidebar-bottom',
-			'description'   => esc_html__( 'Добавьте посты сюда.', 'universal' ),
+			'description'   => esc_html__( 'Add posts here.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -153,9 +153,9 @@ function universal_theme_widgets_init() {
 	);
   register_sidebar(
 		array(
-			'name'          => esc_html__( 'Меню в подвале', 'universal' ),
+			'name'          => esc_html__( 'Footer menu', 'universal' ),
 			'id'            => 'sidebar-footer',
-			'description'   => esc_html__( 'Добавьте меню сюда.', 'universal' ),
+			'description'   => esc_html__( 'Add the menu here.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="footer-menu %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="footer-menu-title">',
@@ -164,9 +164,9 @@ function universal_theme_widgets_init() {
 	);
   register_sidebar(
 		array(
-			'name'          => esc_html__( 'Текст в подвале', 'universal' ),
+			'name'          => esc_html__( 'Footer text', 'universal' ),
 			'id'            => 'sidebar-footer-text',
-			'description'   => esc_html__( 'Добавьте текст сюда.', 'universal' ),
+			'description'   => esc_html__( 'Add your text here.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="footer-text %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '',
@@ -177,7 +177,7 @@ function universal_theme_widgets_init() {
 		array(
 			'name'          => esc_html__( 'Sidebar in Search ', 'universal' ),
 			'id'            => 'sidebar-search',
-			'description'   => esc_html__( 'Добавьте виджеты сюда.', 'universal' ),
+			'description'   => esc_html__( 'Add widgets here.', 'universal' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -250,15 +250,15 @@ class Downloader_Widget extends WP_Widget {
 
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Заголовок:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Heading:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
     <p>
-			<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Описание:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" type="text" value="<?php echo esc_attr( $description ); ?>">
 		</p>
     <p>
-			<label for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Ссылка на файл:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Link to file:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'link' ); ?>" name="<?php echo $this->get_field_name( 'link' ); ?>" type="text" value="<?php echo esc_attr( $link ); ?>">
 		</p>
 		<?php 
@@ -402,11 +402,11 @@ class Recent_Posts_Widget extends WP_Widget {
 
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Заголовок:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Heading:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
     <p>
-			<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Количество постов:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of posts:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>">
 		</p>
 		<?php 
@@ -537,23 +537,23 @@ class Social_Networks_Widget extends WP_Widget {
 
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Заголовок:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Heading:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
     <p>
-			<label for="<?php echo $this->get_field_id( 'link_facebook' ); ?>"><?php _e( 'Ссылка на Facebook:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'link_facebook' ); ?>"><?php _e( 'Link to Facebook:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'link_facebook' ); ?>" name="<?php echo $this->get_field_name( 'link_facebook' ); ?>" type="text" value="<?php echo esc_attr( $link_facebook ); ?>">
 		</p>
     <p>
-			<label for="<?php echo $this->get_field_id( 'link_instagram' ); ?>"><?php _e( 'Ссылка на Instagram:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'link_instagram' ); ?>"><?php _e( 'Link to Instagram:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'link_instagram' ); ?>" name="<?php echo $this->get_field_name( 'link_instagram' ); ?>" type="text" value="<?php echo esc_attr( $link_instagram ); ?>">
 		</p>
     <p>
-			<label for="<?php echo $this->get_field_id( 'link_youtube' ); ?>"><?php _e( 'Ссылка на Youtube:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'link_youtube' ); ?>"><?php _e( 'Link to Youtube:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'link_youtube' ); ?>" name="<?php echo $this->get_field_name( 'link_youtube' ); ?>" type="text" value="<?php echo esc_attr( $link_youtube ); ?>">
 		</p>
     <p>
-			<label for="<?php echo $this->get_field_id( 'link_twitter' ); ?>"><?php _e( 'Ссылка на Twitter:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'link_twitter' ); ?>"><?php _e( 'Link to Twitter:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'link_twitter' ); ?>" name="<?php echo $this->get_field_name( 'link_twitter' ); ?>" type="text" value="<?php echo esc_attr( $link_twitter ); ?>">
 		</p>
 		<?php 
@@ -705,7 +705,7 @@ class Posts_Single_Widget extends WP_Widget {
 
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'quantity' ); ?>"><?php _e( 'Количество постов:' ); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'quantity' ); ?>"><?php _e( 'Number of posts:' ); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id( 'quantity' ); ?>" name="<?php echo $this->get_field_name( 'quantity' ); ?>" type="text" value="<?php echo esc_attr( $quantity ); ?>">
 		</p>
 		<?php 
